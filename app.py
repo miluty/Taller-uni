@@ -350,48 +350,60 @@ def asignar_mecanico():
     boton_guardar = ctk.CTkButton(ventana, text="Asignar", command=guardar_asignacion)
     boton_guardar.pack(pady=20)
 
-#---------------Menu Principal-----------------------
+# Inicializar la app
 app = ctk.CTk()
-app.title("Mecánica Exprés")
+app.title("🛠️ Mecánica Exprés")
 app.geometry("600x750")
 app.resizable(False, False)
 
+# ---------- Encabezado ----------
+label = ctk.CTkLabel(
+    app,
+    text="🛠️ Mecánica Exprés",
+    font=("Helvetica", 32, "bold"),
+    text_color="#00bfff"
+)
+label.pack(pady=25)
 
-label = ctk.CTkLabel(app, text="Mecánica Exprés", font=("Arial", 30, "bold"))
-label.pack(pady=20)
-
-# Crear Tabs 
-tabs = ctk.CTkTabview(app, width=550, height=500)
+# ---------- Tabs ----------
+tabs = ctk.CTkTabview(app, width=550, height=500, corner_radius=15, segmented_button_fg_color="#1f1f1f")
 tabs.pack(pady=10)
 
-# Agregar pestañas
-tab_clientes = tabs.add("Clientes")
-tab_mecanicos = tabs.add("Mecánicos")
+# Tabs
+tab_clientes = tabs.add("👥 Clientes")
+tab_mecanicos = tabs.add("🔧 Mecánicos")
 
-# ------------ Pestaña Clientes ------------
-btn_agregar_cliente = ctk.CTkButton(tab_clientes, text="Agregar Cliente", command=ventana_agregar)
+# ---------- CLIENTES ----------
+btn_agregar_cliente = ctk.CTkButton(tab_clientes, text="➕ Agregar Cliente", command=ventana_agregar, width=250)
 btn_agregar_cliente.pack(pady=15)
 
-btn_ver_clientes = ctk.CTkButton(tab_clientes, text="Ver Clientes", command=ver_clientes)
+btn_ver_clientes = ctk.CTkButton(tab_clientes, text="📋 Ver Clientes", command=ver_clientes, width=250)
 btn_ver_clientes.pack(pady=15)
 
-btn_actualizar_cliente = ctk.CTkButton(tab_clientes, text="Actualizar Cliente", command=ventana_actualizar)
+btn_actualizar_cliente = ctk.CTkButton(tab_clientes, text="✏️ Actualizar Cliente", command=ventana_actualizar, width=250)
 btn_actualizar_cliente.pack(pady=15)
 
-btn_eliminar_cliente = ctk.CTkButton(tab_clientes, text="Eliminar Cliente", command=ventana_eliminar)
+btn_eliminar_cliente = ctk.CTkButton(tab_clientes, text="🗑️ Eliminar Cliente", command=ventana_eliminar, width=250)
 btn_eliminar_cliente.pack(pady=15)
 
-# ------------ Pestaña Mecánicos ------------
-btn_gestion_mecanicos = ctk.CTkButton(tab_mecanicos, text="Gestión de Mecánicos", command=ventana_gestion_mecanicos)
+# ---------- MECÁNICOS ----------
+btn_gestion_mecanicos = ctk.CTkButton(tab_mecanicos, text="👨‍🔧 Gestión de Mecánicos", command=ventana_gestion_mecanicos, width=250)
 btn_gestion_mecanicos.pack(pady=15)
 
-btn_asignar_vehiculo = ctk.CTkButton(tab_mecanicos, text="Asignar Vehículo a Mecánico", command=asignar_mecanico)
+btn_asignar_vehiculo = ctk.CTkButton(tab_mecanicos, text="🚗 Asignar Vehículo a Mecánico", command=asignar_mecanico, width=250)
 btn_asignar_vehiculo.pack(pady=15)
 
-# ------------ Botón de Salir ------------
-btn_salir = ctk.CTkButton(app, text="Salir", command=app.destroy, fg_color="#d9534f", hover_color="#c9302c")
+# ---------- BOTÓN SALIR ----------
+btn_salir = ctk.CTkButton(
+    app,
+    text="❌ Salir",
+    command=app.destroy,
+    fg_color="#d9534f",
+    hover_color="#c9302c",
+    text_color="white",
+    width=200
+)
 btn_salir.pack(pady=30)
-
 
 app.mainloop()
 
